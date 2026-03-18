@@ -26,6 +26,14 @@ FetchContent_GetProperties(cutlass)
 if(NOT cutlass_POPULATED)
     FetchContent_Populate(cutlass)
 endif()
+
+# ========================
+# 输出目录统一
+# ========================
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)   # 静态库 
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)   # 动态库 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)   # 可执行文件
+
 # 子模块（核心）
 
 add_subdirectory(kernels)
